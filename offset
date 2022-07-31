@@ -1,0 +1,46 @@
+#include <stdio.h>
+void offsetneg(char chm1[3],char xm)
+{
+	char i,a1,b1,c1;
+	for (i=0;i<3;i++)
+	{
+		if ((chm1[i]-(xm-48))<65){
+			printf(" %c", 91-(65-(chm1[i]-(xm-48))));
+		}
+		else 
+		{
+			printf(" %c",(chm1[i]-(xm-48)));
+		}
+	}
+}
+void offsetpos(char chm1[3],char xm)
+{
+	char i;
+	for (i=0;i<3;i++)
+	{
+		if ((chm1[i]-(xm-48))>90){
+			printf(" %c", 64+((chm1[i]-(xm-48))-90));
+		}
+		else 
+		{
+			printf(" %c",(chm1[i]+(xm-48)));
+		}
+	}
+}
+int main()
+{
+	char ch1[3];
+	char x[2];
+	printf ("Enter 3 Character with no space in between: ");
+	scanf ("%s",ch1);
+	printf ("Enter an offset value #note do mention the sign(+/-)\t");
+	scanf("%s",x);
+	if (x[0]== 45)
+	{
+		offsetneg(ch1,x[1]);
+	}
+	else if (x[0]== 43)
+	{
+		offsetpos(ch1,x[1]);
+	}
+}
